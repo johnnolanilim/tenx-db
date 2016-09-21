@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--======  Transformation XML ======-->
+<!-- <!DOCTYPE Transformation SYSTEM "DJMap.dtd"> -->
+<Transformation schemaVersion = "1.2" version = "1.4" creator = "v634" datecreated = "2016-09-21T11:18:38Z" author = "v634" datemodified = "2016-09-21T11:29:25Z" partial = "no">
+  <LogManager loglocation = "C:\Users\v634\Pervasive\Logs\MapDesigner\TransformMap.log" messagetypemask = "15"/>
+  <TransformationOptions>
+    <Option name = "truncationhandling" value = "0"/>
+    <Option name = "overflowhandling" value = "0"/>
+    <Option name = "nonullshandling" value = "0"/>
+    <Option name = "maxerrorcount" value = "1"/>
+    <Option name = "logfieldcount" value = "5"/>
+    <Option name = "clearlogbeforerun" value = "no"/>
+  </TransformationOptions>
+  <TransformationSources>
+    <TransformationSource name = "TransformationSource1" connectorname = "Excel 2007">
+      <TransformationSourceOptions>
+        <Option name = "batchSize" value = "0"/>
+        <Option name = "Encoding" value = "UTF-8"/>
+        <Option name = "HeaderRecordRow" value = "1"/>
+        <Option name = "layoutmismatch" value = "0"/>
+      </TransformationSourceOptions>
+      <DataAccess>
+        <ConnectionInfo>
+          <ResMgrSession name = "RMSession1" type = "Excel 2007" resourcemanager = "C:\Temp\Irish Life Health Data.xlsx"/>
+          <ConnectionDetail table = "Sheet1"/>
+        </ConnectionInfo>
+        <SampleInfo type = "All"/>
+        <DataAccessOptions>
+          <Option name = "filterrecordlimit" value = "2147483647"/>
+          <Option name = "sortduplicaterecordsallowed" value = "True"/>
+        </DataAccessOptions>
+      </DataAccess>
+    </TransformationSource>
+  </TransformationSources>
+  <TransformationTargets>
+    <TransformationTarget name = "TransformationTarget1" connectorname = "Oracle 9i" outputmode = "DeleteAppend" updatemode = "UpdateEvery" updatewithnullfields = "no" replacefullrecord = "yes">
+      <TransformationTargetOptions>
+        <Option name = "commitfrequency" value = "0"/>
+        <Option name = "constraintddl"/>
+        <Option name = "systables" value = "False"/>
+        <Option name = "views" value = "True"/>
+        <Option name = "synonyms" value = "False"/>
+        <Option name = "diralias"/>
+        <Option name = "codepage" value = "ANSI"/>
+        <Option name = "usearrays" value = "False"/>
+        <Option name = "arraysize" value = "0"/>
+        <Option name = "appendhint" value = "False"/>
+        <Option name = "parallelhint" value = "0"/>
+        <Option name = "updateaddmismatch" value = "True"/>
+        <Option name = "layoutmismatch" value = "0"/>
+        <Option name = "recordrepetitioncount" value = "0"/>
+      </TransformationTargetOptions>
+      <DataAccess>
+        <ConnectionInfo>
+          <ResMgrSession name = "RMSession1" type = "Oracle 9i" userid = "TENX" resourcemanager = "$(MAC_CRIMS_DB_NAME)">
+            <Password><![CDATA[AQAdALwAGwB1AIMAhQA=]]></Password>
+          </ResMgrSession>
+          <ConnectionDetail table = "TENX.HEALTH_DUMP"/>
+        </ConnectionInfo>
+        <SampleInfo type = "All"/>
+        <DataAccessOptions>
+          <Option name = "filterrecordlimit" value = "2147483647"/>
+        </DataAccessOptions>
+      </DataAccess>
+    </TransformationTarget>
+  </TransformationTargets>
+  <TransformationMap mapname = "HealthDumpToOracle.map.xml"/>
+</Transformation>

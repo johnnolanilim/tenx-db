@@ -1,0 +1,5 @@
+CREATE OR REPLACE PACKAGE mongo_load_pkg
+AS
+   PROCEDURE generate_json;
+END mongo_load_pkg;
+/

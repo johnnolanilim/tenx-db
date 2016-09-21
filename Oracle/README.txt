@@ -1,0 +1,1 @@
+Requires installation of https://github.com/pljson/pljson in the schema.

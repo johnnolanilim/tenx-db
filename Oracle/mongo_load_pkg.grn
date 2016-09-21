@@ -1,0 +1,2 @@
+CREATE OR REPLACE SYNONYM mongo_load FOR mongo_load_pkg
+/
