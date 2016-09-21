@@ -1,6 +1,7 @@
 CREATE OR REPLACE PACKAGE BODY mongo_load_pkg
 IS
-   address_separator   VARCHAR2( 2 ) := ', ';
+   --address_separator   VARCHAR2( 10 ) := ', ';
+   address_separator   VARCHAR2( 10 ) := CHR( 10 );
 
    FUNCTION coalesce_address( in_address_1    administrator_dump.address_1%TYPE
                             , in_address_2    administrator_dump.address_2%TYPE
@@ -21,6 +22,58 @@ IS
 
       RETURN out_address;
    END coalesce_address;
+
+   FUNCTION generate_mobile_no
+      RETURN VARCHAR2
+   IS
+      out_number   VARCHAR2( 11 );
+   BEGIN
+      out_number :=    '08'
+                    || TRUNC( DBMS_RANDOM.VALUE( 22000000
+                                               , 99999999 ) );
+
+      RETURN    SUBSTR( out_number
+                      , 1
+                      , 3 )
+             || ' '
+             || SUBSTR( out_number
+                      , -7
+                      , 7 );
+   END generate_mobile_no;
+
+   FUNCTION generate_email_address( in_forename    administrator_dump.forename%TYPE
+                                  , in_surname     administrator_dump.surname%TYPE )
+      RETURN VARCHAR2
+   IS
+      ln_rand     NUMBER;
+      out_email   VARCHAR2( 200 );
+   BEGIN
+      ln_rand := DBMS_RANDOM.VALUE;
+
+      CASE
+         WHEN ln_rand < .5
+         THEN
+            out_email := '@gmail.com';
+         WHEN ln_rand < .7
+         THEN
+            out_email := '@eircom.net';
+         WHEN ln_rand < .85
+         THEN
+            out_email := '@yahoo.com';
+         ELSE
+            out_email := '@hotmail.com';
+      END CASE;
+
+      out_email := REGEXP_REPLACE(    in_forename
+                                   || '.'
+                                   || in_surname
+                                   || TRUNC( DBMS_RANDOM.VALUE( 0
+                                                              , 999 ) )
+                                   || out_email
+                                 , ' |''' );
+
+      RETURN out_email;
+   END generate_email_address;
 
    PROCEDURE generate_json
    IS
@@ -135,9 +188,9 @@ IS
             AND a.address_1 = p_address_1;
 
       CURSOR cur_health_policy( p_forename     administrator_dump.forename%TYPE
-                             , p_surname      administrator_dump.surname%TYPE
-                             , p_dob          administrator_dump.dob%TYPE
-                             , p_address_1    administrator_dump.address_1%TYPE )
+                              , p_surname      administrator_dump.surname%TYPE
+                              , p_dob          administrator_dump.dob%TYPE
+                              , p_address_1    administrator_dump.address_1%TYPE )
       IS
          SELECT policy_no
               , plan_type
@@ -170,6 +223,11 @@ IS
                       , per_rec.ppsn );
             person.put( 'dob'
                       , json_ext.to_json_value( per_rec.dob ) );
+            person.put( 'mobile'
+                      , generate_mobile_no );
+            person.put( 'email'
+                      , generate_email_address( rec.forename
+                                              , rec.surname ) );
             person.put( 'gender'
                       , per_rec.gender );
             person.put( 'maritalStatus'
@@ -231,9 +289,9 @@ IS
             END LOOP;
 
             FOR health_rec IN cur_health_policy( per_rec.forename
-                                             , per_rec.surname
-                                             , per_rec.dob
-                                             , per_rec.address_1 )
+                                               , per_rec.surname
+                                               , per_rec.dob
+                                               , per_rec.address_1 )
             LOOP
                policy := json( );
 
@@ -250,14 +308,15 @@ IS
 
                policies.append( policy.to_json_value );
             END LOOP;
-            
-            person.put('policies', policies);
+
+            person.put( 'policies'
+                      , policies );
          END LOOP;
-         
+
          ret_val.append( person.to_json_value );
       END LOOP;
-      
-      ret_val.print ;
+
+      ret_val.PRINT;
    END generate_json;
 END mongo_load_pkg;
 /
