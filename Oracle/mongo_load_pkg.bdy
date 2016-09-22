@@ -41,8 +41,20 @@ IS
                       , 7 );
    END generate_mobile_no;
 
-   FUNCTION generate_email_address( in_forename    administrator_dump.forename%TYPE
-                                  , in_surname     administrator_dump.surname%TYPE )
+   FUNCTION generate_username( in_forename    administrator_dump.forename%TYPE
+                             , in_surname     administrator_dump.surname%TYPE )
+      RETURN VARCHAR2
+   IS
+   BEGIN
+      RETURN REGEXP_REPLACE(    in_forename
+                             || '.'
+                             || in_surname
+                             || TRUNC( DBMS_RANDOM.VALUE( 0
+                                                        , 999 ) )
+                           , ' |''' );
+   END generate_username;
+
+   FUNCTION generate_email_address( in_username VARCHAR2 )
       RETURN VARCHAR2
    IS
       ln_rand     NUMBER;
@@ -64,15 +76,7 @@ IS
             out_email := '@hotmail.com';
       END CASE;
 
-      out_email := REGEXP_REPLACE(    in_forename
-                                   || '.'
-                                   || in_surname
-                                   || TRUNC( DBMS_RANDOM.VALUE( 0
-                                                              , 999 ) )
-                                   || out_email
-                                 , ' |''' );
-
-      RETURN out_email;
+      RETURN in_username || out_email;
    END generate_email_address;
 
    PROCEDURE generate_json
@@ -213,6 +217,13 @@ IS
                                   , rec.dob
                                   , rec.address_1 )
          LOOP
+            person.put( 'username'
+                      , generate_username( rec.forename
+                                         , rec.surname ) );
+            person.put( 'password'
+                      , 'password12' );
+            person.put( 'pin'
+                      , '1234' );
             person.put( 'title'
                       , per_rec.title );
             person.put( 'forename'
@@ -226,8 +237,7 @@ IS
             person.put( 'mobile'
                       , generate_mobile_no );
             person.put( 'email'
-                      , generate_email_address( rec.forename
-                                              , rec.surname ) );
+                      , generate_email_address( person.get( 'username' ).get_string ) );
             person.put( 'gender'
                       , per_rec.gender );
             person.put( 'maritalStatus'
