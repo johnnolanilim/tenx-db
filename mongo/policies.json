@@ -10,7 +10,7 @@
 		"maritalStatus" : "M",
 		"address" : "7 Camden Terrace\nAshbourne\nCo Meath",
 		"policies" : [{
-				"lob" : "Health",
+				"policyType" : "Health",
 				"policyID" : "ILH540557",
 				"planType" : "Good",
 				"startDate" : "2016-08-28 00:00:00",
@@ -29,7 +29,7 @@
 		"maritalStatus" : "S",
 		"address" : "7 Camden Terrace\nKilnaleck\nCo Cavan",
 		"policies" : [{
-				"lob" : "CB",
+				"policyType" : "Pension",
 				"policyID" : 574154,
 				"retireDate" : "2046-09-27 00:00:00",
 				"schemeNo" : 8399,
