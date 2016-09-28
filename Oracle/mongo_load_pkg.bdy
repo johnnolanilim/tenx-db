@@ -96,8 +96,8 @@ IS
          UNION
          SELECT forename
               , surname
-              , dob
-              , address_1
+              , birthdate
+              , addressline1
            FROM cloas_dump
          UNION
          SELECT forename
@@ -130,12 +130,12 @@ IS
                       , forename
                       , surname
                       , NULL
-                      , dob
-                      , gender
-                      , marital_status
-                      , address_1
-                      , address_2
-                      , address_3
+                      , birthdate
+                      , sex
+                      , maritalstatus
+                      , addressline1
+                      , addressline2
+                      , addressline3
                       , NULL
                       , NULL
                    FROM cloas_dump
@@ -164,11 +164,13 @@ IS
                              , p_dob          administrator_dump.dob%TYPE
                              , p_address_1    administrator_dump.address_1%TYPE )
       IS
-         SELECT refno
-              , status
-              , retire_dt
-              , scheme_no
-              , scheme_nm
+         SELECT policytype
+              , policyid
+              , fundvalue
+              , retiredate
+              , plannum
+              , planname
+              , monthlypremium
            FROM administrator_dump a
           WHERE a.forename = p_forename
             AND a.surname = p_surname
@@ -180,26 +182,29 @@ IS
                              , p_dob          administrator_dump.dob%TYPE
                              , p_address_1    administrator_dump.address_1%TYPE )
       IS
-         SELECT policy_no
-              , policy_status
-              , retirement_dt
-              , scheme_no
-              , scheme_nm
+         SELECT policy_type as policytype
+              , policyno as policyid
+              , maturitydate
+              , polvalue
+              , investamount
+              , planname
            FROM cloas_dump a
           WHERE a.forename = p_forename
             AND a.surname = p_surname
-            AND a.dob = p_dob
-            AND a.address_1 = p_address_1;
+            AND a.birthdate = p_dob
+            AND a.addressline1 = p_address_1;
 
       CURSOR cur_health_policy( p_forename     administrator_dump.forename%TYPE
                               , p_surname      administrator_dump.surname%TYPE
                               , p_dob          administrator_dump.dob%TYPE
                               , p_address_1    administrator_dump.address_1%TYPE )
       IS
-         SELECT policy_no
-              , plan_type
-              , start_dt
-              , renewal_dt
+         SELECT policytype
+              , policyid
+              , planname
+              , startdate
+              , renewaldate
+              , monthlypremium
            FROM health_dump a
           WHERE a.forename = p_forename
             AND a.surname = p_surname
@@ -259,18 +264,20 @@ IS
             LOOP
                policy := json( );
 
-               policy.put( 'lob'
-                         , 'CB' );
+               policy.put( 'policyType'
+                         , admin_rec.policytype );
                policy.put( 'policyID'
-                         , admin_rec.refno );
-               policy.put( 'retireDate'
-                         , json_ext.to_json_value( admin_rec.retire_dt ) );
-               policy.put( 'schemeNo'
-                         , admin_rec.scheme_no );
-               policy.put( 'schemeName'
-                         , admin_rec.scheme_nm );
-               policy.put( 'policyStatus'
-                         , admin_rec.status );
+                         , admin_rec.policyid );
+               policy.put( 'Retire Date'
+                         , json_ext.to_json_value( admin_rec.retiredate ) );
+               policy.put( 'Plan No'
+                         , admin_rec.plannum );
+               policy.put( 'Plan Name'
+                         , admin_rec.planname );
+               policy.put( 'Fund Value'
+                         , admin_rec.fundvalue );
+               policy.put( 'Monthly Premium'
+                         , admin_rec.monthlypremium );
 
                policies.append( policy.to_json_value );
             END LOOP;
@@ -282,18 +289,18 @@ IS
             LOOP
                policy := json( );
 
-               policy.put( 'lob'
-                         , 'Retail' );
+               policy.put( 'policyType'
+                         , cloas_rec.policytype );
                policy.put( 'policyID'
-                         , cloas_rec.policy_no );
-               policy.put( 'retireDate'
-                         , json_ext.to_json_value( cloas_rec.retirement_dt ) );
-               policy.put( 'schemeNo'
-                         , cloas_rec.scheme_no );
-               policy.put( 'schemeName'
-                         , cloas_rec.scheme_nm );
-               policy.put( 'policyStatus'
-                         , cloas_rec.policy_status );
+                         , cloas_rec.policyid );
+               policy.put( 'Maturity Date'
+                         , json_ext.to_json_value( cloas_rec.maturitydate ) );
+               policy.put( 'Policy Value '
+                         , cloas_rec.polvalue );
+               policy.put( 'Plan Name'
+                         , cloas_rec.planname );
+               policy.put( 'Invest Amount '
+                         , cloas_rec.investamount );
 
                policies.append( policy.to_json_value );
             END LOOP;
@@ -305,16 +312,18 @@ IS
             LOOP
                policy := json( );
 
-               policy.put( 'lob'
-                         , 'Health' );
+               policy.put( 'policyType'
+                         , health_rec.policytype );
                policy.put( 'policyID'
-                         , health_rec.policy_no );
-               policy.put( 'planType'
-                         , health_rec.plan_type );
-               policy.put( 'startDate'
-                         , json_ext.to_json_value( health_rec.start_dt ) );
-               policy.put( 'renewalDate'
-                         , json_ext.to_json_value( health_rec.renewal_dt ) );
+                         , health_rec.policyid );
+               policy.put( 'Plan Name'
+                         , health_rec.planname );
+               policy.put( 'Start Date'
+                         , json_ext.to_json_value( health_rec.startdate ) );
+               policy.put( 'Renewal Date'
+                         , json_ext.to_json_value( health_rec.renewaldate ) );
+               policy.put( 'Monthly Premium'
+                         , health_rec.monthlypremium );
 
                policies.append( policy.to_json_value );
             END LOOP;

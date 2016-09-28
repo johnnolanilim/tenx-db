@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--======  Transformation XML ======-->
 <!-- <!DOCTYPE Transformation SYSTEM "DJMap.dtd"> -->
-<Transformation schemaVersion = "1.2" version = "1.4" creator = "v634" datecreated = "2016-09-21T11:18:38Z" author = "v634" datemodified = "2016-09-21T11:29:25Z" partial = "no">
+<Transformation schemaVersion = "1.2" version = "1.7" creator = "v634" datecreated = "2016-09-28T08:47:31Z" author = "v634" datemodified = "2016-09-28T08:48:28Z" partial = "no">
   <LogManager loglocation = "C:\Users\v634\Pervasive\Logs\MapDesigner\TransformMap.log" messagetypemask = "15"/>
   <TransformationOptions>
     <Option name = "truncationhandling" value = "0"/>
@@ -21,7 +21,7 @@
       </TransformationSourceOptions>
       <DataAccess>
         <ConnectionInfo>
-          <ResMgrSession name = "RMSession1" type = "Excel 2007" resourcemanager = "C:\Temp\Irish Life Health Data.xlsx"/>
+          <ResMgrSession name = "RMSession1" type = "Excel 2007" resourcemanager = "C:\Temp\Irish Life Health Data 2.xlsx"/>
           <ConnectionDetail table = "Sheet1"/>
         </ConnectionInfo>
         <SampleInfo type = "All"/>
@@ -64,5 +64,5 @@
       </DataAccess>
     </TransformationTarget>
   </TransformationTargets>
-  <TransformationMap mapname = "HealthDumpToOracle.map.xml"/>
+  <TransformationMap mapname = "HealthDumpToOracle.map.xml" originallocation = "xmldb:ref:///C://Users/v634/Documents/GitHub/tenx-db/ETL"/>
 </Transformation>

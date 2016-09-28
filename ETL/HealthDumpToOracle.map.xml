@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--======  Map XML ======-->
 <!-- <!DOCTYPE Map SYSTEM "DJMap.dtd"> -->
-<Map schemaVersion = "1.2" version = "1.4" creator = "v634" datecreated = "2016-09-21T11:18:38Z" author = "v634" datemodified = "2016-09-21T11:29:25Z">
+<Map schemaVersion = "1.2" version = "1.7" creator = "v634" datecreated = "2016-09-28T08:47:31Z" author = "v634" datemodified = "2016-09-28T08:48:28Z">
   <MapSources>
     <MapSource name = "MapSource1">
       <MapSchema>
         <Schema connectorname = "Excel 2007" designedfor = "Source">
           <RecordLayouts>
-            <RecordLayout name = "Sheet1" length = "256" status = "0">
+            <RecordLayout name = "Sheet1" length = "288" status = "0">
               <Origin origintype = "0"/>
               <Fields>
-                <Field name = "POLICY_NUM">
+                <Field name = "Policytype">
+                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                </Field>
+                <Field name = "policyID">
                   <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
                 </Field>
                 <Field name = "TITLE">
@@ -34,13 +37,13 @@
                 <Field name = "MSTAT">
                   <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
                 </Field>
-                <Field name = "PLAN_TYPE">
+                <Field name = "planName">
                   <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
                 </Field>
-                <Field name = "START_DT">
+                <Field name = "startDate">
                   <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
                 </Field>
-                <Field name = "RENEWAL_DT">
+                <Field name = "renewalDate">
                   <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
                 </Field>
                 <Field name = "ADDRESS_1">
@@ -56,6 +59,9 @@
                   <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
                 </Field>
                 <Field name = "ADDRESS_5">
+                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                </Field>
+                <Field name = "monthlyPremium">
                   <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
                 </Field>
               </Fields>
@@ -81,14 +87,17 @@
       <MapSchema>
         <Schema connectorname = "Oracle 9i" designedfor = "Target">
           <RecordLayouts>
-            <RecordLayout name = "R1" length = "431" status = "0">
+            <RecordLayout name = "R1" length = "484" status = "0">
               <Origin origintype = "0"/>
               <Fields>
-                <Field name = "POLICY_NO">
+                <Field name = "POLICYTYPE">
+                  <Datatype datatype = "151" dataalias = "VARCHAR2" datalength = "20" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datanulls = "yes"/>
+                </Field>
+                <Field name = "POLICYID">
                   <Datatype datatype = "151" dataalias = "VARCHAR2" datalength = "20" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datanulls = "yes"/>
                 </Field>
                 <Field name = "TITLE">
-                  <Datatype datatype = "151" dataalias = "VARCHAR2" datalength = "5" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datanulls = "yes"/>
+                  <Datatype datatype = "151" dataalias = "VARCHAR2" datalength = "20" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datanulls = "yes"/>
                 </Field>
                 <Field name = "FORENAME">
                   <Datatype datatype = "151" dataalias = "VARCHAR2" datalength = "50" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datanulls = "yes"/>
@@ -111,16 +120,16 @@
                 <Field name = "MSTAT">
                   <Datatype datatype = "151" dataalias = "VARCHAR2" datalength = "1" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datanulls = "yes"/>
                 </Field>
-                <Field name = "PLAN_TYPE">
-                  <Datatype datatype = "151" dataalias = "VARCHAR2" datalength = "10" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datanulls = "yes"/>
+                <Field name = "PLANNAME">
+                  <Datatype datatype = "151" dataalias = "VARCHAR2" datalength = "20" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datanulls = "yes"/>
                 </Field>
-                <Field name = "START_DT">
+                <Field name = "STARTDATE">
                   <Datatype datatype = "8" dataalias = "DATETIME" datalength = "8" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datanulls = "yes"/>
                   <FieldOptions>
                     <Option name = "editpicture" value = "dd/mm/yyyy H24:MM:SS"/>
                   </FieldOptions>
                 </Field>
-                <Field name = "RENEWAL_DT">
+                <Field name = "RENEWALDATE">
                   <Datatype datatype = "8" dataalias = "DATETIME" datalength = "8" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datanulls = "yes"/>
                   <FieldOptions>
                     <Option name = "editpicture" value = "dd/mm/yyyy H24:MM:SS"/>
@@ -141,6 +150,9 @@
                 <Field name = "ADDRESS_5">
                   <Datatype datatype = "151" dataalias = "VARCHAR2" datalength = "50" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datanulls = "yes"/>
                 </Field>
+                <Field name = "MONTHLYPREMIUM">
+                  <Datatype datatype = "3" dataalias = "DOUBLE" datalength = "8" datamsbfirst = "no" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datanulls = "yes" datasigned = "yes"/>
+                </Field>
               </Fields>
               <RecordLayoutOptions>
                 <Option name = "uniquenameprefix" value = "FIELD1"/>
@@ -149,7 +161,8 @@
           </RecordLayouts>
         </Schema>
         <MapExpressions>
-          <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "POLICY_NO"><![CDATA[Fields("POLICY_NUM")]]></MapExpression>
+          <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "POLICYTYPE"><![CDATA[Fields("Policytype")]]></MapExpression>
+          <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "POLICYID"><![CDATA[Fields("policyID")]]></MapExpression>
           <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "TITLE"><![CDATA[Fields("TITLE")]]></MapExpression>
           <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "FORENAME"><![CDATA[Fields("FORENAME")]]></MapExpression>
           <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "SURNAME"><![CDATA[Fields("SURNAME")]]></MapExpression>
@@ -157,14 +170,15 @@
           <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "DOB"><![CDATA[DateValMask(Fields("DOB"), "dd/mm/yyyy")]]></MapExpression>
           <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "GENDER"><![CDATA[Fields("GENDER")]]></MapExpression>
           <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "MSTAT"><![CDATA[Fields("MSTAT")]]></MapExpression>
-          <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "PLAN_TYPE"><![CDATA[Fields("PLAN_TYPE")]]></MapExpression>
-          <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "START_DT"><![CDATA[DateValMask(Fields("START_DT"), "dd/mm/yyyy")]]></MapExpression>
-          <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "RENEWAL_DT"><![CDATA[DateValMask(Fields("RENEWAL_DT"), "dd/mm/yyyy")]]></MapExpression>
+          <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "PLANNAME"><![CDATA[Fields("planName")]]></MapExpression>
+          <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "STARTDATE"><![CDATA[DateValMask(Fields("startDate"), "dd/mm/yyyy")]]></MapExpression>
+          <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "RENEWALDATE"><![CDATA[DateValMask(Fields("renewalDate"), "dd/mm/yyyy")]]></MapExpression>
           <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "ADDRESS_1"><![CDATA[Fields("ADDRESS_1")]]></MapExpression>
           <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "ADDRESS_2"><![CDATA[Fields("ADDRESS_2")]]></MapExpression>
           <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "ADDRESS_3"><![CDATA[Fields("ADDRESS_3")]]></MapExpression>
           <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "ADDRESS_4"><![CDATA[Fields("ADDRESS_4")]]></MapExpression>
           <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "ADDRESS_5"><![CDATA[Fields("ADDRESS_5")]]></MapExpression>
+          <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "MONTHLYPREMIUM"><![CDATA[Fields("monthlyPremium")]]></MapExpression>
         </MapExpressions>
       </MapSchema>
     </MapTarget>
