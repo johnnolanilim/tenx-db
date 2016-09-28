@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--======  Map XML ======-->
 <!-- <!DOCTYPE Map SYSTEM "DJMap.dtd"> -->
-<Map schemaVersion = "1.2" version = "1.10" creator = "v634" datecreated = "2016-09-28T08:43:13Z" author = "v634" datemodified = "2016-09-28T08:46:44Z">
+<Map schemaVersion = "1.2" version = "1.11" creator = "v634" datecreated = "2016-09-28T08:43:13Z" author = "v634" datemodified = "2016-09-28T13:07:18Z">
   <MapSources>
     <MapSource name = "MapSource1">
       <MapSchema>
@@ -11,58 +11,58 @@
               <Origin origintype = "0"/>
               <Fields>
                 <Field name = "Policy_type">
-                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datapadchar = " "/>
                 </Field>
                 <Field name = "policyNo">
-                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datapadchar = " "/>
                 </Field>
                 <Field name = "Surname">
-                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datapadchar = " "/>
                 </Field>
                 <Field name = "Forename">
-                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datapadchar = " "/>
                 </Field>
                 <Field name = "Middle Name">
-                  <Datatype datatype = "0" dataalias = "Character" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                  <Datatype datatype = "0" dataalias = "Character" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datapadchar = " "/>
                 </Field>
                 <Field name = "Title">
-                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datapadchar = " "/>
                 </Field>
                 <Field name = "BirthDate">
-                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datapadchar = " "/>
                 </Field>
                 <Field name = "Sex">
-                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datapadchar = " "/>
                 </Field>
                 <Field name = "MaritalStatus">
-                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datapadchar = " "/>
                 </Field>
                 <Field name = "MaturityDate">
-                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datapadchar = " "/>
                 </Field>
                 <Field name = "planNum">
-                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datapadchar = " "/>
                 </Field>
                 <Field name = "planName">
-                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datapadchar = " "/>
                 </Field>
                 <Field name = "AddressLine1">
-                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datapadchar = " "/>
                 </Field>
                 <Field name = "AddressLine2">
-                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datapadchar = " "/>
                 </Field>
                 <Field name = "AddressLine3">
-                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datapadchar = " "/>
                 </Field>
                 <Field name = "PolicyStatus">
-                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datapadchar = " "/>
                 </Field>
                 <Field name = "polValue">
-                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datapadchar = " "/>
                 </Field>
                 <Field name = "investAmount">
-                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no"/>
+                  <Datatype datatype = "0" dataalias = "Text" datalength = "16" dataidentity = "no" dataautoinc = "no" datacurrency = "no" datarowversion = "no" datapadchar = " "/>
                 </Field>
               </Fields>
               <RecordLayoutOptions>
@@ -170,9 +170,9 @@
           <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "MATURITYDATE"><![CDATA[DateValMask(Fields("MaturityDate"), "dd/mm/yyyy")]]></MapExpression>
           <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "PLANNUM"><![CDATA[Fields("planNum")]]></MapExpression>
           <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "PLANNAME"><![CDATA[Fields("planName")]]></MapExpression>
-          <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "ADDRESSLINE1"><![CDATA[Fields("AddressLine1")]]></MapExpression>
-          <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "ADDRESSLINE2"><![CDATA[Fields("AddressLine2")]]></MapExpression>
-          <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "ADDRESSLINE3"><![CDATA[Fields("AddressLine3")]]></MapExpression>
+          <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "ADDRESSLINE1"><![CDATA[Trim(Fields("AddressLine1"))]]></MapExpression>
+          <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "ADDRESSLINE2"><![CDATA[Trim(Fields("AddressLine2"))]]></MapExpression>
+          <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "ADDRESSLINE3"><![CDATA[Trim(Fields("AddressLine3"))]]></MapExpression>
           <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "POLICYSTATUS"><![CDATA[Fields("PolicyStatus")]]></MapExpression>
           <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "POLVALUE"><![CDATA[Fields("polValue")]]></MapExpression>
           <MapExpression language = "DJScript" recordlayoutname = "R1" fieldname = "INVESTAMOUNT"><![CDATA[Fields("investAmount")]]></MapExpression>
